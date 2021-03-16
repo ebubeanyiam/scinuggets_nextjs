@@ -1,3 +1,8 @@
+:root {
+  --primary-white: #ffffff;
+  --primary-dark: #222;
+}
+
 html,
 body {
   padding: 0;
@@ -12,5 +17,7 @@ a {
 }
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }

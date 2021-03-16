@@ -1,0 +1,211 @@
+.header__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    background: #ffffff;
+    margin-top: 40px;
+  }
+  
+  .bg-mode--dark .header__container {
+    background: var(--theme-dark);
+  }
+  
+  .header {
+    max-width: 1150px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .header__logo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .header__logo h1 {
+    font-weight: 600;
+  }
+  
+  .header__logo--new-story {
+    font-size: 14px;
+    font-weight: 100;
+  }
+  
+  .header__logo img {
+    display: none;
+  }
+  
+  .header__logo--greeting {
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid var(--primary-dark);
+  }
+  
+  .header__logo--greeting--new-story {
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid var(--primary-dark);
+    font-size: 10px;
+    color: rgb(0, 128, 0);
+  }
+  
+  .header__logo--greeting__mobile {
+    display: none;
+  }
+  
+  .header__logo--greeting h1 {
+    /* font-size: 15px; */
+    font-weight: 300;
+  }
+  
+  .header__menu {
+    display: flex;
+  }
+  
+  .header__menu--mobile {
+    display: none !important;
+  }
+  
+  .header__menu--container {
+    display: flex;
+    margin-right: 10px;
+    align-items: center;
+  }
+  
+  .header__menu--container__link,
+  .header__menu--container__link--button {
+    position: relative;
+    margin: 0 15px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .header__menu--container__link img {
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    /* margin-top: 5px; */
+  }
+  
+  .header__menu--container__link--icon {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .header__menu--container__link--button {
+    padding: 10px 15px;
+    color: var(--primary-white);
+    background: var(--primary-dark);
+    border-radius: 5px;
+  }
+  
+  .header__menu--container__link--button__logged-in {
+    color: var(--primary-dark);
+    background: var(--primary-white);
+    border: 1px solid var(--primary-dark);
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 13px;
+    display: block;
+    margin-top: -4px;
+  }
+  
+  .bg-mode--dark .header__menu--container__link--button__logged-in {
+    color: var(--primary-white);
+    background: var(--primary-dark);
+    border: 1px solid #6e40c9;
+  }
+  
+  @media screen and (max-width: 850px) {
+    .header__menu--container__link--button__logged-in {
+      display: none;
+    }
+  
+    .header__logo--greeting {
+      display: none;
+    }
+  
+    .header__menu--container__link,
+    .header__menu--container__link--button {
+      margin: 0 0 0 10px;
+    }
+  }
+  
+  @media screen and (max-width: 700px) {
+    .header__menu--mobile {
+      display: flex !important;
+    }
+  
+    .header__menu--container__link--d {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .header__logo h1 {
+      display: none;
+    }
+  
+    .header__logo img {
+      display: block;
+      width: 40px;
+      height: 40px;
+    }
+  
+    .header__logo--greeting__mobile {
+      display: block;
+      margin-left: 10px;
+    }
+  }
+  
+  .header__menu--dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 200px;
+    color: var(--primary-faded);
+    background: var(--primary-white);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 10px;
+    z-index: 2 !important;
+  }
+  
+  .bg-mode--dark .header__menu--dropdown {
+    border: 1px solid var(--primary-faded);
+    color: var(--theme-white);
+    background: var(--theme-dark);
+    box-shadow: rgb(23, 31, 41) 0px 2px 10px;
+  }
+  
+  .header__menu--dropdown div {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--secondary-faded);
+  }
+  
+  .header__menu--dropdown div:last-child {
+    border-bottom: none;
+  }
+  
+  .header__menu--dropdown div a,
+  .header__menu--dropdown div span,
+  .header__menu--dropdown div form {
+    font-size: 13px;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+  
+  .header__menu--dropdown div a:last-child {
+    margin-bottom: 0;
+  }
+  

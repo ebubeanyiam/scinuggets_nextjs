@@ -1,0 +1,32 @@
+.caution {
+    padding: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-dark);
+    color: var(--primary-white);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+
+     span {
+        font-size: 14px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      svg {
+        color: #f7de0f;
+        margin: 2px 5px 0;
+      }
+  }
+  
+  @media screen and (max-width: 685px) {
+    .app__caution-sign {
+    span {
+      font-size: 12px;
+    }}
+}
