@@ -1,0 +1,33 @@
+.menu_dropdown {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 200px;
+    color: var(--primary-faded);
+    background: var(--primary-white);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 10px;
+    z-index: 2 !important;
+
+    div {
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid var(--secondary-faded);
+
+        a,
+        span,
+        form {
+            font-size: 13px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        a:last-child {
+            margin-bottom: 0;
+          }
+      }
+      
+      div:last-child {
+        border-bottom: none;
+      }
+  }

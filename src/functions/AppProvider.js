@@ -1,3 +1,6 @@
+import server from "../firebase/config";
+
+// Get current time for homepage
 export const getTime = () => {
   const hours = new Date().getHours();
 
@@ -8,4 +11,22 @@ export const getTime = () => {
   } else {
     return "Good evening";
   }
+};
+
+// Fetch user data for user context
+export const getUserData = async (user) => {
+  let data;
+
+  await server
+    .firestore()
+    .collection("users")
+    .doc(user.uid)
+    .get()
+    .then((doc) => {
+      if (doc.data()) {
+        data = doc.data();
+      }
+    });
+
+  return data;
 };

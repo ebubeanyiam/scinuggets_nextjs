@@ -1,4 +1,6 @@
 import { useState, useEffect, createContext, useContext } from "react";
+import { getUserData } from "../functions/AppProvider";
+
 import server from "../firebase/config";
 
 export const UserContext = createContext();
@@ -14,7 +16,7 @@ export const UserData = () => {
 };
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(false);
   const [userData, setUserData] = useState(null);
 
   server.auth().onAuthStateChanged((user) => {
@@ -22,19 +24,10 @@ export const UserProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    if (!user) {
-      return;
+    if (user) {
+      const data = getUserData(user);
+      setUserData(data);
     }
-    server
-      .firestore()
-      .collection("users")
-      .doc(user.uid)
-      .get()
-      .then((doc) => {
-        if (doc.data()) {
-          setUserData(doc.data());
-        }
-      });
   }, [user]);
 
   return (
@@ -42,4 +35,13 @@ export const UserProvider = ({ children }) => {
       {children}
     </UserContext.Provider>
   );
+};
+
+export const ProtectedRoute = ({ children }) => {
+  const user = User();
+  if (user === false) {
+    return <div>Loading</div>;
+  }
+
+  return children;
 };

@@ -1,15 +1,15 @@
 import firebase from "firebase";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDZASMXdO_usZfDp0Ogvz0mv_CfiiQ_N90",
+  apiKey: process.env.apiKey,
   authDomain: "mae-scinuggets.firebaseapp.com",
-  databaseURL: "https://mae-scinuggets.firebaseio.com",
+  databaseURL: process.env.databaseURL,
   projectId: "mae-scinuggets",
   storageBucket: "mae-scinuggets.appspot.com",
   messagingSenderId: "821075835777",
   appId: "1:821075835777:web:fd5ce2121d286a7dc50680",
-  measurementId: "G-Z8WTN06KPX",
 };
+
 // Initialize Firebase
 try {
   firebase.initializeApp(firebaseConfig);

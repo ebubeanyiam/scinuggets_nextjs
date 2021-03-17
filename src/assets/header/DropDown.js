@@ -5,39 +5,41 @@ import Image from "next/image";
 import { UserData } from "../../contexts/User";
 import server from "../../firebase/config";
 
-const DropDown = ({ profileImage }) => {
+import styles from "../../../styles/header/dropdown.module.scss";
+
+const DropDown = ({ image }) => {
   const userData = UserData();
 
   return (
-    <div className="header__menu--dropdown">
-      <div className="header__menu--dropdown--user">
-        <Image
-          width={29}
-          height={29}
-          src={
-            profileImage !== ""
-              ? profileImage
-              : `images/default_profile-img.png`
-          }
-          alt="logged in user"
-        />
+    <div className={`${styles.menu_dropdown} main_menu_dropdown`}>
+      <div>
+        {!image ? (
+          <Image
+            width={29}
+            height={29}
+            src="/images/default_profile-img.png"
+            alt="logged in user"
+          />
+        ) : (
+          <img src={image} alt="logged in user" />
+        )}
       </div>
 
-      <div className="header__menu--dropdown--user-options">
+      <div>
         <Link href="/m/new-story">New Story</Link>
         <Link href="/">Stories</Link>
         <Link href={`/profile/${userData && userData.username}`}>Profile</Link>
         <Link href="/me/settings">Settings</Link>
       </div>
 
-      <div className="header__menu--dropdown--user--personal">
+      <div>
         <Link href="/">Reading List</Link>
         <Link href="/">Publications</Link>
         <Link href="/">Customize your interests</Link>
         <Link href="/">Become a Partner</Link>
       </div>
 
-      <div className="header__menu--dropdown--user--others">
+      <div>
         <Link href="/">Become a Member</Link>
         <Link href="/">Help</Link>
         <span

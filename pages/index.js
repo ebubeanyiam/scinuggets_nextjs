@@ -6,7 +6,7 @@ export default function Home() {
     <Layout>
       <div>
         <Head>
-          <title>Create Next App</title>
+          <title>Scinnuggets</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
       </div>

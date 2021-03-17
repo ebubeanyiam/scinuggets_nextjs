@@ -1,0 +1,35 @@
+.not_found {
+    margin-top: 70px;
+    padding: 100px;
+    min-height: calc(100vh - 70px);
+  }
+  
+  .error_warning,
+  .error_response,
+  .error_header {
+    margin-bottom: 20px;
+  }
+  
+  .error_warning h3 {
+    font-weight: 300;
+  }
+  
+  .error_response h1 {
+    font-weight: 500;
+    font-size: 100px;
+    color: #b2b2b2;
+  }
+  
+  .error_header h2 {
+    font-weight: 600;
+  }
+  
+  .error_message p {
+    line-height: 30px;
+  }
+  
+  .error_message p a {
+    color: #b2b2b2;
+    font-weight: 700;
+  }
+  
