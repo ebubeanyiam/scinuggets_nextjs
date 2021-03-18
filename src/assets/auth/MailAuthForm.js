@@ -34,9 +34,9 @@ const MailAuthForm = ({ status, setEnterPassword }) => {
   };
 
   return (
-    <form className="mail-auth-form" onSubmit={handleSubmit}>
-      <div className="mail-auth-form__form-input-container">
-        <div className="mail-auth-form__input-container">
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <div className={styles.container}>
+        <div className={styles.input_container}>
           {loginStep === 0 && (
             <>
               <input
@@ -75,7 +75,7 @@ const MailAuthForm = ({ status, setEnterPassword }) => {
                 </button>
               )}
 
-              <div className="mail-auth-form__input-container--change-email">
+              <div className={styles.change_email}>
                 <BiArrowBack />
                 <p
                   onClick={() => {
@@ -90,7 +90,7 @@ const MailAuthForm = ({ status, setEnterPassword }) => {
           )}
         </div>
 
-        <p className="mail-auth-form__error-message">{errorMessage}</p>
+        <p className={styles.error_message}>{errorMessage}</p>
       </div>
     </form>
   );
