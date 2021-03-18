@@ -8,7 +8,6 @@ export const authFunction = (provider) => {
     .auth()
     .signInWithPopup(provider)
     .then((res) => {
-      res && setAuthModal(false);
       if (res.additionalUserInfo.isNewUser) {
         db.collection("registeredEmails").doc(res.user.email).set({
           userID: res.user.uid,

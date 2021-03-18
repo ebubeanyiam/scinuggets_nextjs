@@ -8,6 +8,7 @@ const Login = ({ setOp }) => {
         question="No account?"
         redirect="Create One"
         status="Login"
+        backOp="signup"
         setOp={setOp}
       />
     </>

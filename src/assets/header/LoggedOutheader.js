@@ -39,26 +39,18 @@ const LoggedOutHeader = ({ dropDown, setDropDown }) => {
           </Link>
         </li>
         <li>
-          <span
-            className={styles.container_link}
-            onClick={() => {
-              setAuthModal(true);
-              setAuthStatus("Login");
-            }}
-          >
-            Sign In
-          </span>
+          <Link href="/signin">
+            <a>
+              <span className={styles.container_link}>Sign In</span>
+            </a>
+          </Link>
         </li>
         <li>
-          <span
-            className={styles.container_link_button}
-            onClick={() => {
-              setAuthModal(true);
-              setAuthStatus("Signup");
-            }}
-          >
-            Get Started
-          </span>
+          <Link href="/signin?op=signup">
+            <a>
+              <span className={styles.container_link_button}>Get Started</span>
+            </a>
+          </Link>
         </li>
       </ul>
     </div>

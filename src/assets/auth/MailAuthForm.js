@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 
 // import * as _ from "./AuthProviders";
 
-const MailAuthForm = ({ status, setEnterPassword, setFormSubHeading }) => {
+import styles from "../../../styles/auth/mailauthform.module.scss";
+
+const MailAuthForm = ({ status, setEnterPassword }) => {
   const [loginStep, setLoginStep] = useState(0);
   const [emailLoginValue, setEmailLoginValue] = useState("");
   const [passwordLoginValue, setPasswordLoginValue] = useState("");
@@ -16,7 +18,6 @@ const MailAuthForm = ({ status, setEnterPassword, setFormSubHeading }) => {
     setLoginStep,
     setErrorMessage,
     setEnterPassword,
-    setFormSubHeading,
   };
 
   const handleSubmit = (e) => {

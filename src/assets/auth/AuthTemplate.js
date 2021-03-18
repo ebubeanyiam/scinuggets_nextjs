@@ -35,7 +35,7 @@ const AuthTemplate = (props) => {
               >
                 {<option.icon />}
               </div>
-              <div className="auth-template__auth-option--text">
+              <div className={styles.text}>
                 {props.status} {option.text}
               </div>
             </div>
@@ -49,7 +49,7 @@ const AuthTemplate = (props) => {
           <span
             className={styles.text_link}
             onClick={() => {
-              props.setOp(props.status === "signup" ? false : "signup");
+              props.setOp(props.backOp);
             }}
           >
             {props.redirect}

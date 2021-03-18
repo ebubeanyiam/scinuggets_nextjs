@@ -1,38 +1,72 @@
 .template {
-    position: relative;
-    padding: 0 56px;
+  position: relative;
+  padding: 0 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .header {
+    margin-bottom: 50px;
+
+    h3 {
+      font-weight: 300;
+      font-size: 30px;
+    }
+  }
+
+  .auth_options {
+    margin-bottom: 15px;
+
+    .auth_option {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--primary-dark);
+      padding: 7px 30px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      cursor: pointer;
+
+      .icon {
+        margin-right: 10px;
+      }
+
+      .text {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .text_link {
+    cursor: pointer;
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+
+  .accept_terms {
+    width: 315px;
+    margin-top: 30px;
+
+    .terms_text {
+      font-size: 13px;
+      text-align: center;
+      color: var(--primary-faded);
+
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .mail_auth {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-
-    .header {
-        margin-bottom: 50px;
-
-        h3 {
-            font-weight: 300;
-            font-size: 30px;
-        }
-    }
-
-    .auth_options {
-        margin-bottom: 15px;
-
-        .auth_option {
-            display: flex;
-            align-items: center;
-            border: 1px solid var(--primary-dark);
-            padding: 7px 30px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            cursor: pointer;
-
-            .icon {
-                margin-right: 10px;
-            }
-        }
-    }
-      
-      
-      
-      
+    background: var(--primary-white);
+  }
 }

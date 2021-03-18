@@ -1,12 +1,11 @@
 import firebase from "firebase";
 
 var firebaseConfig = {
-  apiKey: process.env.apiKey,
+  apiKey: "AIzaSyDZASMXdO_usZfDp0Ogvz0mv_CfiiQ_N90",
   authDomain: "mae-scinuggets.firebaseapp.com",
-  databaseURL: process.env.databaseURL,
+  databaseURL: "https://mae-scinuggets.firebaseio.com",
   projectId: "mae-scinuggets",
   storageBucket: "mae-scinuggets.appspot.com",
-  messagingSenderId: "821075835777",
   appId: "1:821075835777:web:fd5ce2121d286a7dc50680",
 };
 
