@@ -24,50 +24,79 @@ export const authFunction = (provider) => {
     });
 };
 
-export const mailAuthFunction = (email, password, setAuthModal, status) => {
+export const mailAuthFunction = (email, password, setLoading, setE, status) => {
+  setLoading(true);
+
   if (status === "Login") {
-    auth
+    server
+      .auth()
       .signInWithEmailAndPassword(email, password)
-      .then((res) => res && setAuthModal(false));
+      .then((res) => {
+        if (res) {
+          setLoading(false);
+          return;
+        }
+      })
+      .catch((e) => {
+        setLoading(false);
+        setE(e.message);
+      });
   } else {
-    auth.createUserWithEmailAndPassword(email, password).then((res) => {
-      res && setAuthModal(false);
-      db.collection("registeredEmails").doc(email).set({
-        userID: res.user.uid,
+    server
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(async (res) => {
+        if (res) {
+          await server
+            .firestore()
+            .collection("registeredEmails")
+            .doc(email)
+            .set({
+              userID: res.user.uid,
+            });
+          await server.firestore().collection("users").doc(res.user.uid).set({
+            displayName: "",
+            bio: "",
+            username: "",
+            photoUrl: "",
+            website: "",
+            timestamp,
+          });
+          if (res.additionalUserInfo.isNewUser) {
+            server
+              .auth()
+              .currentUser.sendEmailVerification()
+              .then(() => {
+                console.log("Email sent");
+              })
+              .catch((e) => console.log(e));
+          }
+          setLoading(false);
+        }
+      })
+      .catch((e) => {
+        setLoading(false);
+        setE(`Error: ${e.message}`);
       });
-      db.collection("users").doc(res.user.uid).set({
-        displayName: "",
-        bio: "",
-        username: "",
-        photoUrl: "",
-        website: "",
-        timestamp,
-      });
-      if (res.additionalUserInfo.isNewUser) {
-        console.log("new user");
-        auth.currentUser
-          .sendEmailVerification()
-          .then(() => {
-            console.log("Email sent");
-          })
-          .catch((e) => console.log(e));
-      }
-    });
   }
 };
 
 export const checkEmail = async (props) => {
+  props.setLoading(true);
   if (props.emailLoginValue.match(validEmail)) {
-    const emailRef = db
+    const emailRef = server
+      .firestore()
       .collection("registeredEmails")
       .doc(props.emailLoginValue);
     if (props.status === "Sign up") {
       emailRef.get().then((res) => {
         if (res.exists) {
           props.setErrorMessage("That email is already registered");
+          props.setLoading(false);
           return;
         } else {
           props.setLoginStep(1);
+          props.setLoading(false);
           props.setErrorMessage("");
           props.setEnterPassword(true);
           props.setFormSubHeading("Create a new password for your account");
@@ -78,16 +107,21 @@ export const checkEmail = async (props) => {
       emailRef.get().then((res) => {
         if (res.exists) {
           props.setLoginStep(1);
+          props.setLoading(false);
           props.setErrorMessage("");
           props.setEnterPassword(true);
-          props.setFormSubHeading("Enter the password associated with ....");
+          props.setFormSubHeading(
+            "Enter the password associated with your account"
+          );
           return;
         } else {
+          props.setLoading(false);
           props.setErrorMessage("Email isn't registered");
         }
       });
     }
   } else {
+    props.setLoading(false);
     props.setErrorMessage(
       props.emailLoginValue.length < 1
         ? "You haven't typed in an Email"

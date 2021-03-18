@@ -1,6 +1,8 @@
 import { useState, useEffect, createContext, useContext } from "react";
 import { getUserData } from "../functions/AppProvider";
 
+import Loader from "../components/Loader";
+
 import server from "../firebase/config";
 
 export const UserContext = createContext();
@@ -40,7 +42,7 @@ export const UserProvider = ({ children }) => {
 export const ProtectedRoute = ({ children }) => {
   const user = User();
   if (user === false) {
-    return <div>Loading</div>;
+    return <Loader />;
   }
 
   return children;

@@ -39,12 +39,12 @@
         margin-left: 10px;
       }
     }
-  }
-}
 
-.mail-auth-form__input-container .mail-auth-form__error-message {
-  margin-top: 20px;
-  color: var(--primary-warning);
-  font-weight: 300;
-  text-align: center;
+    .error_message {
+      margin-top: 20px;
+      color: var(--warning-primary);
+      font-weight: 300;
+      text-align: center;
+    }
+  }
 }

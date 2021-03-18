@@ -36,7 +36,7 @@ const MailAuthTemplate = ({ status, subHeading, setMailAuth }) => {
       <div className={styles.template_logo}>
         <Link href="/">
           <a>
-            <img src="/images/scinuggets_logo.png" alt="" />
+            <h3>Scinuggets</h3>
           </a>
         </Link>
       </div>
@@ -53,6 +53,7 @@ const MailAuthTemplate = ({ status, subHeading, setMailAuth }) => {
         setMailAuth={setMailAuth}
         status={status}
         setEnterPassword={setEnterPassword}
+        setFormSubHeading={setFormSubHeading}
       />
 
       <div

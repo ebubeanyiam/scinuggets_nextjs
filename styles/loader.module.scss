@@ -1,0 +1,72 @@
+.screen {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+
+    .container {
+        background: #f5f5f5;
+        padding: 10px;
+	    border-radius: 4px;
+        width: 100px;
+	    height: 50px;
+	    margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .sphere {
+            width: 12px;
+            height: 12px;
+            clear: both;
+            margin-right: 10px;
+            border-radius: 50%;
+            border-left: 0px #000 solid;
+            border-right: 0px #000 solid;
+            -webkit-animation: spSphere 1s infinite linear;
+            animation: spSphere 1s infinite linear;
+        }
+
+        @-webkit-keyframes spSphere {
+            0% {
+                border-left: 0px #000 solid;
+                border-right: 0px #000 solid;
+            }
+            33% {
+                border-left: 12px #000 solid;
+                border-right: 0px #000 solid;
+            }
+            34% {
+                border-left: 0px #000 solid;
+                border-right: 12px #000 solid;
+            }
+            66% {
+                border-left: 0px #000 solid;
+                border-right: 0px #000 solid;
+            }
+        }
+        
+        @keyframes spSphere {
+            0% {
+                border-left: 0px #000 solid;
+                border-right: 0px #000 solid;
+            }
+            33% {
+                border-left: 12px #000 solid;
+                border-right: 0px #000 solid;
+            }
+            34% {
+                border-left: 0px #000 solid;
+                border-right: 12px #000 solid;
+            }
+            66% {
+                border-left: 0px #000 solid;
+                border-right: 0px #000 solid;
+            }
+        }
+        
+    }
+}

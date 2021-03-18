@@ -11,11 +11,13 @@ const Enter = () => {
   const [op, setOp] = useState(router.query.op);
 
   return (
-    <div className={styles.auth_modal}>
-      <div className={styles.modal}>
-        {op === "signup" ? <Signup setOp={setOp} /> : <Login setOp={setOp} />}
+    <>
+      <div className={styles.auth_modal}>
+        <div className={styles.modal}>
+          {op === "signup" ? <Signup setOp={setOp} /> : <Login setOp={setOp} />}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
