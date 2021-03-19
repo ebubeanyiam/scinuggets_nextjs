@@ -28,16 +28,14 @@ const LoggedInHeader = ({ dropDown, setDropDown, user }) => {
               setDropDown(!dropDown);
             }}
           >
-            {!user.photoURL ? (
-              <Image
-                width={29}
-                height={29}
-                src="/images/default_profile-img.png"
-                alt="logged in user"
-              />
-            ) : (
-              <img src={user.photoURL} alt="logged in user" />
-            )}
+            <img
+              src={
+                user.photoURL
+                  ? user.photoURL
+                  : "/images/default_profile-img.png"
+              }
+              alt="logged in user"
+            />
 
             {dropDown && (
               <DropDown setDropDown={setDropDown} image={user.photoURL} />

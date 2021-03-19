@@ -30,3 +30,16 @@ export const getUserData = async (user) => {
 
   return data;
 };
+
+// Send Email Verification
+export const resendEmail = () => {
+  server
+    .auth()
+    .currentUser.sendEmailVerification()
+    .then(() => {
+      alert("Email sent");
+    })
+    .catch((e) => {
+      alert("Error", e.message);
+    });
+};
