@@ -1,7 +1,7 @@
 import firebase from "firebase";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyDZASMXdO_usZfDp0Ogvz0mv_CfiiQ_N90",
+  apiKey: process.env.apiKey,
   authDomain: "mae-scinuggets.firebaseapp.com",
   databaseURL: "https://mae-scinuggets.firebaseio.com",
   projectId: "mae-scinuggets",

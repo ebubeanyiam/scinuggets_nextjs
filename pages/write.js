@@ -1,26 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import Editorjs from "react-editor-js";
 
-import { User } from "../context/UserContext";
-import Header from "./new-story-components/Header_";
-import { EDITOR_JS_TOOLS } from "../editor/editorConfig";
-import Publish from "./new-story-components/Publish";
-import { getDraft, saveDraft } from "./new-story-components/FunctionProvider";
+import { User } from "../src/contexts/User";
+import Header from "../src/assets/write/Header_";
+import { EDITOR_JS_TOOLS } from "../src/editor/config";
+import Publish from "../src/assets/write/Publish";
 
-import "../style/new-story.css";
-import PageNotFound from "./PageNotFound";
-import ScreenLoader from "./ScreenLoader";
+import { saveDraft } from "../src/assets/write/Functions";
+
+// import "../style/new-story.css";
 
 const NewStory = (props) => {
   const user = User();
   const instanceRef = useRef(null);
+
   const [title, setTitle] = useState("");
   const [saving, setSaving] = useState(false);
-  const [newPost, setNewPost] = useState(true);
   const [dropDown, setDropDown] = useState(false);
   const [menuDropDown, setMenuDropDown] = useState(false);
-  const [editorData, setEditorData] = useState(null);
-  const [draftId, setDraftId] = useState(props.match.params.id);
   const [onChangeCount, setOnChangeCount] = useState(0);
 
   // Image Uploads
@@ -28,20 +25,15 @@ const NewStory = (props) => {
   const [postImage, setPostImage] = useState(null);
 
   const [publish, setPublish] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [userDraft, setUserDraft] = useState(null);
+  const [draftId, setDraftId] = useState(null);
 
   const pageProps = {
     user,
     setSaving,
-    newPost,
-    setNewPost,
     draftId,
     setDraftId,
     title,
     setTitle,
-    setUserDraft,
-    setEditorData,
     setLoading,
     instanceRef,
   };
@@ -52,21 +44,6 @@ const NewStory = (props) => {
     }
   }, [onChangeCount]);
 
-  useEffect(() => {
-    getDraft(pageProps);
-  }, []);
-
-  if (loading) {
-    return <ScreenLoader />;
-  }
-  if (!newPost && userDraft === false) {
-    return (
-      <PageNotFound
-        warning="We can't seem to find that article among your treasures"
-        response="Oops"
-      />
-    );
-  }
   return (
     <div
       className="new-story"
@@ -135,17 +112,15 @@ const NewStory = (props) => {
             className="new-story__editor--body"
             style={{ zIndex: dropDown ? -1 : 1 }}
           >
-            {editorData !== null && (
-              <Editorjs
-                onChange={() => {
-                  setOnChangeCount(onChangeCount + 1);
-                }}
-                data={editorData}
-                instanceRef={(instance) => (instanceRef.current = instance)}
-                placeholder="Write your article"
-                tools={EDITOR_JS_TOOLS}
-              />
-            )}
+            <Editorjs
+              onChange={() => {
+                setOnChangeCount(onChangeCount + 1);
+              }}
+              data={""}
+              instanceRef={(instance) => (instanceRef.current = instance)}
+              placeholder="Write your article"
+              tools={EDITOR_JS_TOOLS}
+            />
           </div>
         </div>
       )}
