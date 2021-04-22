@@ -36,10 +36,8 @@ export default function Home() {
           ) : (
             <ForYou trend={trend} setCustom={setCustom} />
           )}
-          {/* <TrendingPosts setTrend={setTrend} />
-          <AllPosts custom={custom} trend={trend} /> 
-          <Hero />
-          <Footer /> */}
+          <TrendingPosts setTrend={setTrend} />
+          <AllPosts custom={custom} trend={trend} />
         </div>
       </div>
     </Layout>

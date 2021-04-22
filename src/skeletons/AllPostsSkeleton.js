@@ -1,7 +1,3 @@
-import React from "react";
-
-import "../../style/skeletons/allposts_skeleton.css";
-
 const AllPostsSkeleton = () => {
   return (
     <div className="all-posts_skeleton">

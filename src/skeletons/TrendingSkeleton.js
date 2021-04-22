@@ -1,7 +1,5 @@
 import React from "react";
 
-import "../../style/skeletons/trending_skeleton.css";
-
 const TrendingSkeleton = () => {
   return (
     <div className="trending_skeleton">

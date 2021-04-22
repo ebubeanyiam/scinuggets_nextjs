@@ -9,8 +9,7 @@ import { timeToRead } from "./Functions";
 
 import MainPost from "./components/MainPost";
 import OtherPosts from "./components/OtherPosts";
-
-import ForYouSkeleton from "../../skeletons/ForYouSkeleton";
+import Writers from "./components/Writers";
 
 const ForYou = ({ trend, setCustom }) => {
   const [posts, setPosts] = useState([]);
@@ -74,60 +73,9 @@ const ForYou = ({ trend, setCustom }) => {
           <OtherPosts postSliced={postSliced} />
         </div>
 
-        {/* <div className="homepage__custom-posts-writers">
-          <div className="homepage__custom-posts-writers-child">
-            <h1 className="homepage__custom-posts--marker">
-              WRITERS TO FOLLOW
-            </h1>
-            <div className="homepage__custom-posts--writer-box-container">
-              {authors.length !== 0 &&
-                authors.map((author, index) => (
-                  <div
-                    className="homepage__custom-posts--writer-box"
-                    key={index}
-                  >
-                    <div className="homepage__custom-posts--writer-box-bio">
-                      {author.data().photoUrl && (
-                        <Link to={`/profile/${author.data().username}`}>
-                          <img src={author.data().photoUrl} alt="writer" />
-                        </Link>
-                      )}
-                      <div className="homepage__custom-posts--writer-box-bio-about">
-                        {author.data().displayName && (
-                          <h5>{author.data().displayName}</h5>
-                        )}
-                        {author.data().bio && <span>{author.data().bio}</span>}
-                      </div>
-                    </div>
-                    <div className="homepage__custom-posts--writer-box-follow">
-                      <button>Follow</button>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          <div className="homepage__custom-posts-writers-child">
-            <h1 className="homepage__custom-posts--marker">TOPICS TO FOLLOW</h1>
-            <div className="homepage__custom-posts--topics-container">
-              <div className="homepage__custom-posts--topic-box">
-                <h3>Coronavirus</h3>
-                <button>Follow</button>
-              </div>
-              <div className="homepage__custom-posts--topic-box">
-                <h3>Programming</h3>
-                <button>Follow</button>
-              </div>
-              <div className="homepage__custom-posts--topic-box">
-                <h3>Javascript</h3>
-                <button>Follow</button>
-              </div>
-              <Link to="/">
-                <span>See More</span>
-              </Link>
-            </div>
-          </div>
-        </div> */}
+        <div className="homepage__custom-posts-writers">
+          <Writers authors={authors} />
+        </div>
       </div>
     </div>
   );
