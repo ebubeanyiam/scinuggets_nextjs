@@ -10,7 +10,7 @@ export default function OtherPosts({ postSliced }) {
     <>
       {postSliced.length > 0
         ? postSliced.map((post, index) => (
-            <Link key={index} href={post.data().slug}>
+            <Link key={index} href={`/${post.data().slug}`}>
               <a>
                 <div className="homepage__custom-posts--post">
                   <div className="homepage__all-posts--post-info">

@@ -2,6 +2,8 @@ import { UserProvider, ProtectedRoute } from "../src/contexts/User";
 import "../styles/publish/editor.css";
 import "../styles/globals.css";
 
+import "../styles/[post]/blog.css";
+
 import "../styles/index/for_you.css";
 import "../styles/index/trending_posts.css";
 import "../styles/index/all_posts.css";

@@ -10,7 +10,7 @@ export default function MainPost({ mainPost }) {
     <>
       {mainPost.length > 0
         ? mainPost.map((post, index) => (
-            <Link key={index} href={post.data().slug}>
+            <Link key={index} href={`/${post.data().slug}`}>
               <a>
                 <div className="homepage__custom-post--main">
                   <div className="homepage__custom-post--post-image">

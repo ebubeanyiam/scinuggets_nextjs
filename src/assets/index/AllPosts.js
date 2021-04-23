@@ -69,15 +69,15 @@ const AllPosts = ({ trend }) => {
             ? posts.map((post, index) => {
                 if (posts.length === index + 1) {
                   return (
-                    <Link key={index} href={post.data().slug} ref={lastPostRef}>
-                      <a>
+                    <Link key={index} href={`/${post.data().slug}`}>
+                      <a ref={lastPostRef}>
                         <PostDiv post={post} />
                       </a>
                     </Link>
                   );
                 } else {
                   return (
-                    <Link key={index} href={post.data().slug}>
+                    <Link key={index} href={`/${post.data().slug}`}>
                       <a>
                         <PostDiv post={post} />
                       </a>
