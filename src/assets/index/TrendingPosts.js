@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Moment from "react-moment";
-import Link from "next/Link";
+import Link from "next/link";
 import { IoIosTrendingUp } from "react-icons/io";
 
 import server from "../../firebase/config";

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/Link";
+import Link from "next/link";
 
 import server from "../../firebase/config";
 import PostDiv from "./components/PostDiv";
