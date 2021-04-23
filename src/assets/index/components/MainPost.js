@@ -1,4 +1,4 @@
-import Link from "next/Link";
+import Link from "next/link";
 import Moment from "react-moment";
 
 import { timeToRead } from "../Functions";
