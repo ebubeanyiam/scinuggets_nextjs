@@ -1,17 +1,16 @@
 // tools.js
+
 import Header from "@editorjs/header";
 import Embed from "@editorjs/embed";
 import List from "@editorjs/list";
-
 import Code from "@editorjs/code";
-
 import ImageTool from "@editorjs/image";
-import Raw from "@editorjs/raw";
+// const Raw = dynamic(() => import("@editorjs/raw"));
 import SimpleImage from "@editorjs/simple-image";
 
-import { editorImageFile, editorImageUrl } from "../assets/write/Functions";
+import { editorImageFile, editorImageUrl } from "../assets/publish/Functions";
 
-export const EDITOR_JS_TOOLS = {
+export default {
   embed: Embed,
   list: List,
   code: Code,
@@ -28,7 +27,7 @@ export const EDITOR_JS_TOOLS = {
       },
     },
   },
-  raw: Raw,
+  // raw: Raw,
   header: Header,
   simpleImage: SimpleImage,
 };

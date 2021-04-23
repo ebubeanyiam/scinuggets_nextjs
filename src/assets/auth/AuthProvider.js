@@ -9,20 +9,16 @@ export const authFunction = (provider) => {
     .signInWithPopup(provider)
     .then((res) => {
       if (res.additionalUserInfo.isNewUser) {
-        server
-          .firestore()
-          .collection("registeredEmails")
-          .doc(res.user.email)
-          .set({
-            userID: res.user.uid,
-          });
+        db.collection("registeredEmails").doc(res.user.email).set({
+          userID: res.user.uid,
+        });
         server.firestore().collection("users").doc(res.user.uid).set({
           displayName: res.user.displayName,
           bio: "",
           username: "",
           photoUrl: res.user.photoURL,
           website: "",
-          timestamp: server.firestore.FieldValue.serverTimestamp(),
+          timestamp,
         });
       }
     });
@@ -64,7 +60,7 @@ export const mailAuthFunction = (email, password, setLoading, setE, status) => {
             username: "",
             photoUrl: "",
             website: "",
-            timestamp: server.firestore.FieldValue.serverTimestamp(),
+            timestamp,
           });
           if (res.additionalUserInfo.isNewUser) {
             server

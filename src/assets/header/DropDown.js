@@ -26,42 +26,22 @@ const DropDown = ({ image }) => {
       </div>
 
       <div>
-        <Link href="/write">
-          <a>Write</a>
-        </Link>
-        <Link href="/">
-          <a>Stories</a>
-        </Link>
-        <Link href={`/profile/${userData && userData.username}`}>
-          <a>Profile</a>
-        </Link>
-        <Link href="/me/settings">
-          <a>Settings</a>
-        </Link>
+        <Link href="/m/new-story">New Story</Link>
+        <Link href="/">Stories</Link>
+        <Link href={`/profile/${userData && userData.username}`}>Profile</Link>
+        <Link href="/me/settings">Settings</Link>
       </div>
 
       <div>
-        <Link href="/">
-          <a>Reading List</a>
-        </Link>
-        <Link href="/">
-          <a>Publications</a>
-        </Link>
-        <Link href="/">
-          <a>Customize your interests</a>
-        </Link>
-        <Link href="/">
-          <a>Become a Partner</a>
-        </Link>
+        <Link href="/">Reading List</Link>
+        <Link href="/">Publications</Link>
+        <Link href="/">Customize your interests</Link>
+        <Link href="/">Become a Partner</Link>
       </div>
 
       <div>
-        <Link href="/">
-          <a>Become a Member</a>
-        </Link>
-        <Link href="/">
-          <a>Help</a>
-        </Link>
+        <Link href="/">Become a Member</Link>
+        <Link href="/">Help</Link>
         <span
           onClick={() => {
             server.auth().signOut();

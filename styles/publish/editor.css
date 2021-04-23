@@ -1,0 +1,14 @@
+.codex-editor__redactor {
+  padding: 5px 0 !important;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+#editor-js {
+  z-index: inherit;
+  padding-bottom: 20px;
+}
+
+#editor-js .codex-editor {
+  z-index: inherit;
+}

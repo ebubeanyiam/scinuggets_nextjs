@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import Editorjs from "react-editor-js";
+import dynamic from "next/dynamic";
+// import Editorjs from "react-editor-js";
+
+const Editorjs = dynamic(() => import("react-editor-js"), { ssr: false });
 
 import { User } from "../src/contexts/User";
 import Header from "../src/assets/write/Header_";
@@ -34,7 +37,6 @@ const NewStory = (props) => {
     setDraftId,
     title,
     setTitle,
-    setLoading,
     instanceRef,
   };
 
@@ -113,6 +115,7 @@ const NewStory = (props) => {
             style={{ zIndex: dropDown ? -1 : 1 }}
           >
             <Editorjs
+              holder="editor-js"
               onChange={() => {
                 setOnChangeCount(onChangeCount + 1);
               }}
@@ -120,7 +123,9 @@ const NewStory = (props) => {
               instanceRef={(instance) => (instanceRef.current = instance)}
               placeholder="Write your article"
               tools={EDITOR_JS_TOOLS}
-            />
+            >
+              <div id="editor-js"></div>
+            </Editorjs>
           </div>
         </div>
       )}

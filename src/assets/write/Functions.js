@@ -16,7 +16,7 @@ export const saveDraft = async (props, title) => {
       .then((res) => {
         props.setSaving(false);
         props.setDraftId(res.id);
-        window.history.pushState({}, "", `/drafts/${res.id}`);
+        // window.history.pushState({}, "", `/drafts/${res.id}`);
       });
   } else {
     server
