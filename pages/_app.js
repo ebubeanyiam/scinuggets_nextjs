@@ -18,9 +18,7 @@ import "../styles/skeletons/allposts_skeleton.css";
 function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>
-      <ProtectedRoute>
-        <Component {...pageProps} />
-      </ProtectedRoute>
+      <Component {...pageProps} />
     </UserProvider>
   );
 }

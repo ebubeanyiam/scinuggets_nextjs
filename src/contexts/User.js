@@ -39,11 +39,11 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-export const ProtectedRoute = ({ children }) => {
-  const user = User();
-  if (user === false) {
-    return <Loader />;
-  }
+// export const ProtectedRoute = ({ children }) => {
+//   const user = User();
+//   if (user === false) {
+//     return <Loader />;
+//   }
 
-  return children;
-};
+//   return children;
+// };
