@@ -90,7 +90,7 @@ export default function Post({ data }) {
       <div>
         <Head>
           <title>{data.title}</title>
-          <meta name="description" content={data.title} />
+          <meta name="description" content={data.subtitle} />
           <meta name="image" content={data.featuredImage} />
           <meta property="og:title" content={data.title} />
           <meta property="og:description" content={data.subtitle} />
