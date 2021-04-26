@@ -17,11 +17,6 @@ export default function Home() {
   const [trend, setTrend] = useState([]);
   const [custom, setCustom] = useState([]);
 
-  if (!user) {
-    useRouter().push("/signin");
-    return <Loader />;
-  }
-
   return (
     <Layout>
       <div>
