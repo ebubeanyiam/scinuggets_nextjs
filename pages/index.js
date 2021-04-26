@@ -28,6 +28,14 @@ export default function Home() {
         <Head>
           <title>Scinnuggets</title>
           <link rel="icon" href="/favicon.ico" />
+          <meta property="og:title" content="Scinuggets Home" />
+          <meta
+            property="og:description"
+            content="Amazing articles for learned readers."
+          />
+          <meta property="og:image" content="/images/scinuggets_logo.png" />
+          <meta property="og:url" content="https://blog.scinuggets.com" />
+          <meta name="twitter:card" content="summary_large_image"></meta>
         </Head>
 
         <div className="homepage">
