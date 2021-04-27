@@ -1,7 +1,7 @@
 import { UserProvider, ProtectedRoute } from "../src/contexts/User";
 import "../styles/publish/editor.css";
 import "../styles/globals.css";
-
+import "../styles/footer.css";
 import "../styles/[post]/blog.css";
 
 import "../styles/index/for_you.css";

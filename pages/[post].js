@@ -8,6 +8,9 @@ import Layout from "../src/components/Layout";
 import BlogHeader from "../src/assets/blog/BlogHeader";
 import StoryComponents from "../src/assets/blog/StoryComponents";
 import ArticleContainer from "../src/assets/blog/ArticleContainer";
+import AuthorComponent from "../src/assets/blog/AuthorComponent";
+import MorePosts from "../src/assets/blog/MorePosts";
+import Footer from "../src/components/Footer";
 
 import { User } from "../src/contexts/User";
 
@@ -84,37 +87,45 @@ export default function Post({ data }) {
       });
   }, [data]);
 
-  console.log(data);
   return (
-    <Layout>
-      <div>
-        <Head>
-          <title>{data.title}</title>
-          <meta name="description" content={data.subtitle} />
-          <meta name="image" content={data.featuredImage} />
-          <meta property="og:title" content={data.title} />
-          <meta property="og:description" content={data.subtitle} />
-          {data.featuredImageIsSet && (
-            <meta property="og:image" content={data.featuredImage} />
-          )}
-          <meta
-            property="og:url"
-            content={`blog.scinuggets.com/${data.slug}`}
-          />
-          <meta name="twitter:card" content="summary_large_image"></meta>
-        </Head>
+    <>
+      <Layout>
+        <div>
+          <Head>
+            <title>{data.title}</title>
+            <meta name="description" content={data.subtitle} />
+            <meta name="image" content={data.featuredImage} />
+            <meta property="og:title" content={data.title} />
+            <meta property="og:description" content={data.subtitle} />
+            {data.featuredImageIsSet && (
+              <meta property="og:image" content={data.featuredImage} />
+            )}
+            <meta
+              property="og:url"
+              content={`blog.scinuggets.com/${data.slug}`}
+            />
+            <meta name="twitter:card" content="summary_large_image"></meta>
+          </Head>
 
-        <BlogHeader user={user} data={data} />
-        <div className="blog__article-container">
-          <StoryComponents />
-          <ArticleContainer
-            data={data}
-            authorDetails={authorDetails}
-            htmlData={htmlData}
-          />
+          <BlogHeader user={user} data={data} />
+          <div className="blog__article-container">
+            <StoryComponents />
+            <ArticleContainer
+              data={data}
+              authorDetails={authorDetails}
+              htmlData={htmlData}
+            />
+          </div>
+          {authorDetails && (
+            <>
+              <AuthorComponent authorDetails={authorDetails} />
+              <MorePosts morePosts={morePosts} authorDetails={authorDetails} />
+            </>
+          )}
         </div>
-      </div>
-    </Layout>
+      </Layout>
+      <Footer />
+    </>
   );
 }
 
@@ -128,9 +139,9 @@ export const getServerSideProps = async ({ params }) => {
     .get()
     .then((doc) => {
       const tempData = doc.data();
-      tempData.timestamp = tempData.timestamp.toString();
+      tempData.timestamp = tempData.timestamp.seconds;
       if (tempData.lastEdited)
-        tempData.lastEdited = tempData.lastEdited.toString();
+        tempData.lastEdited = tempData.lastEdited.seconds;
       data = tempData;
     });
 

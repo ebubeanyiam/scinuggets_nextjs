@@ -37,12 +37,7 @@ export default function ArticleContainer({ data, authorDetails, htmlData }) {
               </div>
               <div className="article-time-details--time">
                 <span>
-                  {
-                    <Moment fromNow>
-                      {new Date(data.timestamp.seconds * 1000)}
-                    </Moment>
-                  }{" "}
-                  .
+                  {<Moment fromNow>{new Date(data.timestamp * 1000)}</Moment>} .
                 </span>
                 {htmlData && <span>{readingTime(htmlData).text}</span>}
               </div>
@@ -60,8 +55,7 @@ export default function ArticleContainer({ data, authorDetails, htmlData }) {
         {data.edited && (
           <div className="blog__article--edited">
             <span>
-              Last edited{" "}
-              {<Moment>{new Date(data.lastEdited.seconds * 1000)}</Moment>}
+              Last edited {<Moment>{new Date(data.lastEdited * 1000)}</Moment>}
             </span>
           </div>
         )}
