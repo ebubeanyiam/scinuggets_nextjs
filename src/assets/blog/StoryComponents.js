@@ -1,19 +1,20 @@
 import { BsBookmark } from "react-icons/bs";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { calcLike, calcSaves } from "./Functions";
 
-export default function StoryComponents(props) {
+export default function StoryComponents({ args }) {
   return (
     <>
       <aside className="blog__story-component">
         <div className="blog__story-comp-card-container">
           <div className="blog__story-comp-card">
             <IoMdHeartEmpty
-              style={{ color: props.likedPost && "red" }}
+              style={{ color: args.likedPost && "red" }}
               onClick={() => {
-                props.calcLike(props.args);
+                calcLike(args);
               }}
             />
-            <span>{props.postLikes}</span>
+            <span>{args.postLikes}</span>
           </div>
 
           {/* <div className="blog__story-comp-card">
@@ -23,12 +24,12 @@ export default function StoryComponents(props) {
 
           <div className="blog__story-comp-card">
             <BsBookmark
-              style={{ color: props.savedPost && "purple" }}
+              style={{ color: args.savedPost && "purple" }}
               onClick={() => {
-                props.calcSaves(props.args);
+                args.calcSaves(args);
               }}
             />
-            <span>{props.postSaves}</span>
+            <span>{args.postSaves}</span>
           </div>
         </div>
       </aside>

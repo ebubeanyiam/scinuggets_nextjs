@@ -41,7 +41,8 @@ export const getHTMLData = (data, setHtmlData) => {
 export const calcLike = async (args) => {
   if (args.user) {
     if (!args.likedPost) {
-      await db
+      await server
+        .firestore()
         .collection("posts")
         .doc(args.props.match.params.id)
         .update({
@@ -52,7 +53,8 @@ export const calcLike = async (args) => {
       args.setPostLikes(args.postLikes + 1);
       args.setLikedPost(true);
     } else {
-      await db
+      await server
+        .firestore()
         .collection("posts")
         .doc(args.props.match.params.id)
         .update({
@@ -64,14 +66,15 @@ export const calcLike = async (args) => {
       args.setLikedPost(false);
     }
   } else {
-    args.setLoginAction(true);
+    args.router.push("/signin?op=likepost");
   }
 };
 
 export const calcSaves = async (args) => {
   if (args.user) {
     if (!args.savedPost) {
-      await db
+      await server
+        .firestore()
         .collection("posts")
         .doc(args.props.match.params.id)
         .update({
@@ -83,7 +86,8 @@ export const calcSaves = async (args) => {
       args.setPostSaves(args.postSaves + 1);
       args.setSavedPost(true);
     } else {
-      await db
+      await server
+        .firestore()
         .collection("posts")
         .doc(args.props.match.params.id)
         .update({
@@ -96,7 +100,7 @@ export const calcSaves = async (args) => {
       args.setSavedPost(false);
     }
   } else {
-    args.setLoginAction(true);
+    args.router.push("/signin?op=savepost");
   }
 };
 

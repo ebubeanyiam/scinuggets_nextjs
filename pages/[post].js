@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 
 import Layout from "../src/components/Layout";
 // import { VscComment } from "react-icons/vsc";
@@ -20,6 +22,7 @@ import server from "../src/firebase/config";
 
 export default function Post({ data }) {
   const user = User();
+  const router = useRouter();
   const [htmlData, setHtmlData] = useState(null);
   const [postLikes, setPostLikes] = useState(0);
   const [postSaves, setPostSaves] = useState(0);
@@ -35,6 +38,7 @@ export default function Post({ data }) {
 
   const args = {
     user,
+    router,
     likedPost,
     setLikedPost,
     postLikes,
@@ -109,7 +113,7 @@ export default function Post({ data }) {
 
           <BlogHeader user={user} data={data} />
           <div className="blog__article-container">
-            <StoryComponents />
+            <StoryComponents args={args} />
             <ArticleContainer
               data={data}
               authorDetails={authorDetails}
